@@ -1,5 +1,5 @@
 const path = require('path');
-// const WebpackObfuscator = require('webpack-obfuscator')
+const WebpackObfuscator = require('webpack-obfuscator')
 const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
@@ -21,7 +21,7 @@ module.exports = {
     splitChunks: false
   },
   experiments: {
-    topLevelAwait: true // Needed for async in service worker
+    topLevelAwait: true 
   },
   target: "webworker",
   module: {
@@ -48,16 +48,20 @@ module.exports = {
           {
             from: path.resolve(__dirname, "src/public/labels.json"),
             to: path.resolve(__dirname, "dist/labels.json")
+          },
+          {
+            from: path.resolve(__dirname, "src/public/icons"),
+            to: path.resolve(__dirname, "dist/icons")
           }
         ]
       }
     ),
-    // new WebpackObfuscator({
-    //   rotateStringArray: true,
-    //   stringArrayEncoding: ["base64"],
-    //   compact: true,
-    //   selfDefending: true,
-    //   stringArray: true
-    // })
+    new WebpackObfuscator({
+      rotateStringArray: true,
+      stringArrayEncoding: ["base64"],
+      compact: true,
+      selfDefending: true,
+      stringArray: true
+    })
   ]
 };
