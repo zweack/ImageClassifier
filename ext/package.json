@@ -1,0 +1,19 @@
+{
+    "name": "image-classifier",
+    "version": "1.0.0",
+    "description": "Classify images in browser",
+    "scripts": {
+        "build": "webpack --config webpack.config.js"
+    },
+    "dependencies": {
+        "onnxruntime-web": "^1.20.1"
+    },
+    "devDependencies": {
+        "ts-loader": "^9.5.0",
+        "typescript": "^5.3.3",
+        "webpack": "^5.99.9",
+        "webpack-cli": "^6.0.1",
+        "webpack-obfuscator": "^3.5.1",
+        "copy-webpack-plugin": "^13.0.0"
+    }
+}

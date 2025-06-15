@@ -1,0 +1,40 @@
+{
+    "manifest_version": 3,
+    "name": "ImageClassifier",
+    "version": "1.0.0",
+    "description": "Classify images in browser",
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "model.onnx"
+            ],
+            "matches": [
+                "<all_urls>"
+            ],
+            "js":["content.js"]
+        }
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'wasm-unsafe-eval'; object-src 'self';"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "tabs",
+        "contextMenus"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"],
+            "run_at": "document_idle"
+        }
+    ]
+}
