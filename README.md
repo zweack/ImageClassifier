@@ -1,2 +1,2 @@
-# OnBrowserTextClassification
-Text classification with BART in browser using Transformers.js
+# ImageClassifier
+A browser extension to classify images, runs locally within browser.
